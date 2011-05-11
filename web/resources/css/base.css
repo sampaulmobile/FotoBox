@@ -1,0 +1,206 @@
+body{
+    background: #FFFFFF;
+    bottom: 0;
+    border: 0;
+    color: #414042;
+    font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 0;
+}
+
+a{
+    color:#414042;
+    text-decoration: none;
+}
+
+input{
+    color: #414042;
+}
+
+input#submit_button{  
+    border: 1px solid #d0ccc9;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 20pt;
+}
+
+#mailto{
+    border: 1px solid #d0ccc9;
+    padding: 5px;
+    font-weight: 700;
+    font-size: 15pt;
+}
+
+input:hover{
+    background:#FFC619; 
+    color:#FFFFFF;
+}
+
+#searchbar{
+    background:#FFFFFF;
+    color:#414042;
+}
+
+.left_float{
+    float: left;
+}
+
+.right_float{
+    float: right;
+}
+
+.bottom_float{
+	float:bottom;
+}
+.center_align{
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 850px;
+	width: 70%;
+}
+
+#comment_box{
+	border: 1px solid #eeeeee;
+}
+
+#topbar_underlay{
+    background:#D1D3D4;
+    height:25px;
+    position: absolute;
+    top:0;
+    width:100%;
+}
+/***** container *****/
+#container{
+    position:relative;
+    top:0;
+}
+/***** topbar *****/
+#topbar_div{
+    height:25px;
+    position: absolute;
+    top:0;
+    width:100%;
+}
+
+#un_div{
+    line-height:25px;
+    margin-right:1em;
+    vertical-align:middle;
+}
+
+#or_div{
+    width:1.5em;
+    text-align:center
+}
+
+a.topbar_big_link:link {font-weight: bold;font-size:medium;}
+a.topbar_big_link:visited {font-weight: bold;font-size:medium;}
+a.topbar_big_link:active {font-weight: bold;font-size:medium;}
+a.topbar_big_link:hover {text-decoration: none; background:#FFC619; color:#FFFFFF; font-weight: bold;font-size:medium;}
+
+a.topbar_small_link:link {font-weight: 500;font-size:small;}
+a.topbar_small_link:visited {font-weight: 500;font-size:small;}
+a.topbar_small_link:active {font-weight: 500;font-size:small;}
+a.topbar_small_link:hover {background:#FFC619;color:#FFFFFF;font-weight: 500;font-size:small;}
+
+.searchform input{  
+    border: 1px solid #d0ccc9;
+    font-weight: 700;
+}
+
+/***** Nav Header ******/
+#nav_div{
+    border: 0px;
+    position: absolute;
+    top: 30px;
+    width:100%;
+}
+/*** Logo ***/
+#logoimg{
+    height: 100px;
+    width: auto;
+}
+
+.right_pad{
+	padding-right:5px;
+}
+
+.right_pad_big{
+	padding-right:10px;
+}
+
+.rating_img{
+	height: 25px;
+	width: 25px;
+}
+
+/**** Navbar ****/
+.navbar{
+    position:relative;
+    top: 50px;
+}
+/*** Nav Buttons ***/
+
+.nav_button_div{
+    text-align:center;
+}
+
+a.nav_button_link{
+    display:block;
+    padding:0.25em 1em 0.25em 1em;
+    margin: 0 0 0 10px;
+}
+
+a.nav_button_link:link {text-decoration: none; background:#777; color:#FFFFFF; font-weight: bold;font-size:large;}
+a.nav_button_link:visited {text-decoration: none; background:#777; color:#FFFFFF; font-weight: bold;font-size:large;}
+a.nav_button_link:active {text-decoration: none; background:#FFC619;color:#FFFFFF; font-weight: bold;font-size:large;}
+a.nav_button_link:hover {text-decoration: none; background: #FFC619; color:#FFFFFF;font-weight: bold;font-size:large;}/*#208040*/
+
+/***** BODY CONTENT *****/
+#content_div{
+	position:absolute;
+	top:135px;
+    width:100%;
+}
+
+#content_top{
+    height: 32px;
+    width: 100%;
+    border-bottom: 2px solid #777;
+    margin: 0 0 0 0;
+    padding: 0 0 5px 0;
+    position: relative;
+}
+
+h1{
+    border: 0;
+    font-size: 24pt;
+    height: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+#content_description{
+    float: left;
+}
+
+#content_tabs{
+    float: right;
+    height: 100%;
+    position: relative;
+}
+
+#content_tabs a{
+    position: absolute; 
+    bottom: 0; 
+    font-size: 10pt;
+    vertical-align: text-bottom;
+}
+
+#content{
+    margin: 10px 0 0 0;
+}

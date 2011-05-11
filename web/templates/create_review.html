@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block css %}
+<link type="text/css" href="/resources/css/create_review.css" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="/resources/js/create_review.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.ui.slider.js"></script>
+{% endblock %}
+
+{% block content_description %}
+	Create New Review
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<form id="create_review" action="/save_review/" method="post">
+	<div class="left_float" id="left">
+	<table>
+		{% csrf_token %}
+		<tr>
+			<td>{% trans "Username" %}: </td>
+			<td>{{ user.username }}</td>
+		</tr>
+		<tr>			
+			<td>{% trans "Employer" %}:</td>
+			<td><input type="text" name="company" /></td>
+		</tr>
+		<tr>
+			<td>{% trans "Division" %}: </td>
+			<td><input type="text" name="division" /></td>
+		</tr>
+		<tr>
+			<td>{% trans "Position Title" %}: </td>
+			<td><input type="text" name="position_title" /></td>
+		</tr>
+		<tr>
+			<td>{% trans "Position Type" %}:</td>
+			<td>
+				<select name="position_type">
+					<option value="I">Internship</option>
+					<option value="P">Part-Time</option>
+					<option value="F">Full-Time</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>{% trans "Year Taken" %}:</td>
+			<td>
+				<select name="year_taken">
+					<option value="FR">Freshman</option>
+					<option value="SO">Sophomore</option>
+					<option value="JR">Junior</option>
+					<option value="SR">Senior</option>
+					<option value="GR">Graduate</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans "Overall" %}: </td>
+			<td>
+				<select name="overall">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans "Pay" %}: </td>
+			<td>
+				<select name="pay">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans "Hours" %}: </td>
+			<td>
+				<select name="hours">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans "Difficulty" %}: </td>
+			<td>
+				<select name="difficulty">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</td>
+		</tr>
+		</table>
+		</div>
+		<div class="right_float" id="right">
+			{% trans "Comment" %}: 
+			<textarea name="comment" ></textarea>
+			<div id="submit_div" align="right">	
+				<input id="submit_button" type="submit" value="Submit" />
+			</div>
+		</div>
+
+
+</form>					
+{% else %}
+	<a href="{% url auth_login %}">{% trans "Log in" %}</a>
+	<a href="{% url registration_register %}">{% trans "Register" %}</a>
+{% endif %}
+
+{% endblock %}

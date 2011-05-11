@@ -1,0 +1,16 @@
+div{
+	display:block;
+}
+#color_text{
+	color:#FF0000;
+}
+
+#ranks{
+	position:relative;
+}
+#numerical{
+	float:top;
+}
+#prose{
+	float:bottom;
+}

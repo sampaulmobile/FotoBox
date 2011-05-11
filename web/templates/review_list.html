@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+	<table class="top_left" style="width:100%;height:100%">
+		<tr class="top_left" style="width:100%;height:100%;">
+			<td class="top_left" style="width:600px;height:100%;">
+				<div style="width:100%;height:100%;">
+					<div class="ui-widget-content">
+						<p>Filter Search</p>
+					</div>
+					<div id="tabs" style="width:100%;height:100%">
+						<ul>
+							<li><a href="#tabs-1">Recommended</a></li>
+							<li><a href="#tabs-2">Favorites</a></li>
+							<li><a href="#tabs-3">Your Posts</a></li>
+						</ul>
+						<div id="tabs-1">
+						{% if division_list%}									
+							{% for division in division_list %}
+								<h3><a href="#">{{division.name}} - {{division.company}}</a></h3>
+								<ul>
+								{% for review in division_reviews %}
+									{% if review.employer.name == division.name and review.employer.company == division.company %}
+										<li>Review by {{review.reviewer.username}}: {{review.employer.name}}-{{review.employer.company}}</li>
+									{% endif %}
+								{%endfor%}
+								</ul>
+							{% endfor %}
+						{% else %}
+							<p> Can't Load Accordion information <p>
+						{% endif %}
+						
+						</div>
+						<div id="tabs-2">
+							<p>Contents 2</p>
+						</div>
+						<div id="tabs-3">	
+							<p><button id="add_review">Add Review</button></p>
+						</div>
+					</div>
+				</div>
+			</td>
+			<td style="position:absolute;top:0px;left:600px;width:100%;height:100%">
+				<div class="ui-widget-content" style="width:100%;height:100%">
+					<p>Content of detail container</p>
+				</div>
+			</td>
+		</tr>
+	</table>
+{% endblock %}

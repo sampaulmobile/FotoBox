@@ -1,0 +1,6 @@
+{% load i18n %}
+{% trans "Activate account at" %} Jobious:
+
+http://127.0.0.1:8000{% url registration_activate activation_key %}
+
+{% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}

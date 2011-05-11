@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block css %}
+<link type="text/css" href="/resources/css/account_info.css" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block content_description %}
+	Edit Account Information
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div id="parent_div">
+<form id="account_info" action="/account_update/" method="post">
+	<div class="left_float" id="left">
+		<table>
+	{% csrf_token %}
+	<tr>
+		<td>{% trans "Username" %}: </td>
+		<td>{{ user.username }}</td>
+	</tr>
+	<tr>
+		<td>{% trans "Email" %}: </td>
+		<td>{{ user.email }}</td>
+	</tr>
+	<tr>			
+		<td>{% trans "First Name" %}: </td>
+		<td><input id="normalized1" type="text" name="first_name" value="{{ user.first_name }}" /></td>
+	</tr>
+	<tr>
+		<td>{% trans "Last Name" %}:</td> 
+		<td><input id="normalized2" type="text" name="last_name" value="{{ user.last_name }}" /></td>
+	</tr>
+	<tr>
+		<td>{% trans "DOB" %}: </td>
+		<td><input id="normalized3" type="text" name="dob" value="{{ user.get_profile.dob }}" /></td>
+	</tr>
+	<tr>
+		<td>{% trans "Current Year" %}:</td> 
+		<td><input id="normalized4" type="text" name="current_year" value="{{ user.get_profile.current_year }}" /></td>
+	</tr>
+	<tr>
+	<td>{% trans "Degrees" %}: </td>
+		{% for degree in user.get_profile.degrees.all %}
+			<td>{{degree.year}} - {{degree.course}} - {{degree.diploma_type}}</td>
+		{% endfor %}
+	</tr>
+</table>
+</div>
+<div class="right_float" id="right">
+	<input id="submit_button" type="submit" value="Submit" />
+</div>
+</form>	
+</div>					
+{% else %}
+	<a href="{% url auth_login %}">{% trans "Log in" %}</a>
+	<a href="{% url registration_register %}">{% trans "Register" %}</a>
+{% endif %}
+
+{% endblock %}
+

@@ -1,0 +1,92 @@
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<head>
+	{% block css %}{% endblock %}
+	<link type="text/css" href="/resources/css/base.css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="/resources/js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="/resources/js/jquery-ui-1.8.12.custom.min.js"></script>
+	<script type="text/javascript" src="/resources/js/main.js"></script>
+	<script type="text/javascript" src="/resources/js/protovis-d3.2.js"></script>
+	{% block js %}{% endblock %}
+	
+	<title>{% block title %}Jobious{% endblock %}</title>
+</head>
+<body id="body">
+	<div id="topbar_underlay"></div>
+	<div id="container" class="center_align">
+		<div id="topbar_div" >
+			<div id="loginpositioning_div" class="right_float">
+				<div id="search_div" class="right_float">
+					<form method="post" action="/search/" method="post" class="searchform" id="searchform">
+						{% csrf_token %}
+						<input id="searchbar" class="text" type="text" name="searchbar" value="">
+						<input id="searchbutton" type="submit" value="Search it!" />
+					</form>
+				</div>			
+				<div id="un_div" class="right_float">
+					{% if user.is_authenticated %}
+							<a href="/account_info/{{ user.username }}" class="topbar_big_link"> {{ user.username }}</a>					
+							<a href="{% url auth_logout %}" class="topbar_small_link">{% trans "log out" %}</a>
+					{% else %}
+						<div id="login_div" class="right_float">
+							<a href="{% url auth_login %}" class="topbar_big_link">{% trans "Log In" %}</a>
+						</div>
+						<div id="or_div" class="right_float">
+							or
+						</div>
+						<div id="reg_div" class="right_float">
+							<a href="{% url registration_register %}" class="topbar_big_link">{% trans "Register" %}</a>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+		<div id="nav_div">
+			{% block nav %}
+			<div id="logo_div" class="left_float">
+				<a href="/"><img src="/resources/img/logo.png" id="logoimg" title="Jobious Logo"></a>
+			</div>
+			<div id="read_navbar" class="navbar left_float">
+				{% if user.is_authenticated %}
+					<div id="top_button_div" class="nav_button_div left_float">
+						<a href="/reviews/recommended" id="nav_button_link_top" class="nav_button_link">Recommended</a>
+					</div>
+					<div id="favorites_button_div" class="nav_button_div left_float">
+						<a href="/favorites" id="nav_button_link_favs" class="nav_button_link">	Favorites</a>
+					</div>
+					<div id="my_posts_button_div" class="nav_button_div left_float" >
+						<a href="/reviews/mine" id="nav_button_link_mine" class="nav_button_link">Mine</a>
+					</div>
+				{% endif %}
+			</div>
+			<div id="post_navbar" class="navbar nav_button_div right_float">
+				<div id="post_review_button_div" class="nav_button_div">
+					<a href="/create_review/" id="nav_button_link_new" class="nav_button_link" alt="add job review">+</a>
+				</div>
+			</div>
+			{% endblock %}
+		</div>
+		<div id="content_div">
+			<div id="content_top">
+				<div id="content_description">
+					<h1>
+						{% block content_description%}
+						Top Employers
+						{% endblock %}
+					</h1>
+				</div>
+			</div>
+			<div id="content">
+				{% block content %}
+				You should see some content here.
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

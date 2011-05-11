@@ -1,0 +1,26 @@
+.division_review{
+    border-style: none none dotted none;
+    height: 100px;
+    padding: 10px 0 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+.favorite{
+    float:left;
+}
+
+td{
+    vertical-align:baseline;
+}
+img{
+    height:70%;
+    width:auto;
+}
+
+.graph{
+    width: auto;
+    height: 20px;
+    float:left;
+    padding:0 5px 0 0;
+}

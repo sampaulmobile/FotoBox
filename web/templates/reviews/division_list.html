@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block css %}
+	<link type="text/css" href="/resources/css/review_display.css" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+	<script type="text/javascript" src="/resources/js/review_display.js"></script>
+{% endblock %}
+
+{% block content_description%}
+Recommended
+{% endblock %}
+
+{% block content %}
+	{% for division in divisions.object_list %}
+		<div id="{{ division.company.name}} {{division.name}}" class="division_review">
+			<div class="favorite">
+					<img class="star_power" src="/resources/img/star.png" id="{{division.id}}" title="Favorite this">
+			</div>
+			<div class="info">
+				<div class="name">
+					<a href="/reviews/review/{{division.id}}">
+					<table>
+						<tr>
+							<td>
+								<h1>{{division.employer.company.name|default:"Corporate America"}}</h1>
+							</td>
+							<td>
+								<h2>{{division.employer.name|default:""}}<h2>
+							</td>
+						</tr>
+					</table>
+					</a>
+				</div>
+				<div class="ratings">
+					<div class="graph">
+						<b>Overall:</b>
+						{% if 0 < division.avg_rating and division.avg_rating <= 0.5 %}
+							<img src="/resources/img/review_logos/overall_05.png"class="overall">
+						{%else%}{% if 0.5 < division.avg_rating and division.avg_rating <= 1 %}
+							<img src="/resources/img/review_logos/overall_10.png"class="overall">
+						{%else%}{% if 1 < division.avg_rating and division.avg_rating <= 1.5 %}
+							<img src="/resources/img/review_logos/overall_15.png"class="overall">
+						{%else%}{% if 1.5 < division.avg_rating and division.avg_rating <= 2 %}
+							<img src="/resources/img/review_logos/overall_20.png"class="overall">
+						{%else%}{% if 2 < division.avg_rating and division.avg_rating <= 2.5 %}
+							<img src="/resources/img/review_logos/overall_25.png"class="overall">
+						{%else%}{% if 2.5 < division.avg_rating and division.avg_rating <= 3 %}
+							<img src="/resources/img/review_logos/overall_30.png"class="overall">
+						{%else%}{% if 3 < division.avg_rating and division.avg_rating <= 3.5 %}
+							<img src="/resources/img/review_logos/overall_35.png"class="overall">
+						{%else%}{% if 3.5 < division.avg_rating and division.avg_rating <= 4 %}
+							<img src="/resources/img/review_logos/overall_40.png"class="overall">
+						{%else%}{% if 4 < division.avg_rating and division.avg_rating <= 4.5 %}
+							<img src="/resources/img/review_logos/overall_45.png"class="overall">
+						{%else%}
+							<img src="/resources/img/review_logos/overall_50.png"class="overall">
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						({{division.avg_rating|floatformat:"1"}}/5)
+					</div>
+					<div class="graph">
+						<b>Pay:</b>
+						{% if 0 < division.avg_pay and division.avg_pay <= 0.5 %}
+							<img src="/resources/img/review_logos/pay_05.png"class="pay">
+						{%else%}{% if 0.5 < division.avg_pay and division.avg_pay <= 1 %}
+							<img src="/resources/img/review_logos/pay_10.png"class="pay">
+						{%else%}{% if 1 < division.avg_pay and division.avg_pay <= 1.5 %}
+							<img src="/resources/img/review_logos/pay_15.png"class="pay">
+						{%else%}{% if 1.5 < division.avg_pay and division.avg_pay <= 2 %}
+							<img src="/resources/img/review_logos/pay_20.png"class="pay">
+						{%else%}{% if 2 < division.avg_pay and division.avg_pay <= 2.5 %}
+							<img src="/resources/img/review_logos/pay_25.png"class="pay">
+						{%else%}{% if 2.5 < division.avg_pay and division.avg_pay <= 3 %}
+							<img src="/resources/img/review_logos/pay_30.png"class="pay">
+						{%else%}{% if 3 < division.avg_pay and division.avg_pay <= 3.5 %}
+							<img src="/resources/img/review_logos/pay_35.png"class="pay">
+						{%else%}{% if 3.5 < division.avg_pay and division.avg_pay <= 4 %}
+							<img src="/resources/img/review_logos/pay_40.png"class="pay">
+						{%else%}{% if 4 < division.avg_pay and division.avg_pay <= 4.5 %}
+							<img src="/resources/img/review_logos/pay_45.png"class="pay">
+						{%else%}
+							<img src="/resources/img/review_logos/pay_50.png"class="pay">
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						({{division.avg_pay|floatformat:"1"}}/5)
+					</div>
+					<div class="graph">
+						<b>Hours:</b>
+						{% if 0 < division.avg_hours and division.avg_hours <= 0.5 %}
+							<img src="/resources/img/review_logos/hours_05.png"class="hours">
+						{%else%}{% if 0.5 < division.avg_hours and division.avg_hours <= 1 %}
+							<img src="/resources/img/review_logos/hours_10.png"class="hours">
+						{%else%}{% if 1 < division.avg_hours and division.avg_hours <= 1.5 %}
+							<img src="/resources/img/review_logos/hours_15.png"class="hours">
+						{%else%}{% if 1.5 < division.avg_hours and division.avg_hours <= 2 %}
+							<img src="/resources/img/review_logos/hours_20.png"class="hours">
+						{%else%}{% if 2 < division.avg_hours and division.avg_hours <= 2.5 %}
+							<img src="/resources/img/review_logos/hours_25.png"class="hours">
+						{%else%}{% if 2.5 < division.avg_hours and division.avg_hours <= 3 %}
+							<img src="/resources/img/review_logos/hours_30.png"class="hours">
+						{%else%}{% if 3 < division.avg_hours and division.avg_hours <= 3.5 %}
+							<img src="/resources/img/review_logos/hours_35.png"class="hours">
+						{%else%}{% if 3.5 < division.avg_hours and division.avg_hours <= 4 %}
+							<img src="/resources/img/review_logos/hours_40.png"class="hours">
+						{%else%}{% if 4 < division.avg_hours and division.avg_hours <= 4.5 %}
+							<img src="/resources/img/review_logos/hours_45.png"class="hours">
+						{%else%}
+							<img src="/resources/img/review_logos/hours_50.png"class="hours">
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						({{division.avg_hours|floatformat:"1"}}/5)
+					</div>
+					<div class="graph">
+						<b>Difficulty:</b>
+						{% if 0 < division.avg_difficulty and division.avg_difficulty <= 0.5 %}
+							<img src="/resources/img/review_logos/hardness_05.png"class="difficulty">
+						{%else%}{% if 0.5 < division.avg_difficulty and division.avg_difficulty <= 1 %}
+							<img src="/resources/img/review_logos/hardness_10.png"class="difficulty">
+						{%else%}{% if 1 < division.avg_difficulty and division.avg_difficulty <= 1.5 %}
+							<img src="/resources/img/review_logos/hardness_15.png"class="difficulty">
+						{%else%}{% if 1.5 < division.avg_difficulty and division.avg_difficulty <= 2 %}
+							<img src="/resources/img/review_logos/hardness_20.png"class="difficulty">
+						{%else%}{% if 2 < division.avg_difficulty and division.avg_difficulty <= 2.5 %}
+							<img src="/resources/img/review_logos/hardness_25.png"class="difficulty">
+						{%else%}{% if 2.5 < division.avg_difficulty and division.avg_difficulty <= 3 %}
+							<img src="/resources/img/review_logos/hardness_30.png"class="difficulty">
+						{%else%}{% if 3 < division.avg_difficulty and division.avg_difficulty <= 3.5 %}
+							<img src="/resources/img/review_logos/hardness_35.png"class="difficulty">
+						{%else%}{% if 3.5 < division.avg_difficulty and division.avg_difficulty <= 4 %}
+							<img src="/resources/img/review_logos/hardness_40.png"class="difficulty">
+						{%else%}{% if 4 < division.avg_difficulty and division.avg_difficulty <= 4.5 %}
+							<img src="/resources/img/review_logos/hardness_45.png"class="difficulty">
+						{%else%}
+							<img src="/resources/img/review_logos/hardness_50.png"class="difficulty">
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						{% endif %}
+						({{division.avg_difficulty|floatformat:"1"}}/5)
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	
+	<div class="pagination">
+	    <span class="step-links">
+	        {% if divisions.has_previous %}
+	            <a href="?page={{ divisions.previous_page_number }}">previous</a>
+	        {% endif %}
+
+	        <span class="current">
+	            Page {{ divisions.number }} of {{ divisions.paginator.num_pages }}
+	        </span>
+
+	        {% if divisions.has_next %}
+	            <a href="?page={{ divisions.next_page_number }}">next</a>
+	        {% endif %}
+	    </span>
+	</div>
+{% endblock %}

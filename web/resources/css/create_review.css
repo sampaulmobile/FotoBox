@@ -1,0 +1,15 @@
+input#submit_button{  
+    border: 1px solid #d0ccc9;
+    padding: 10px;
+    color: #414042;
+    font-weight: 700;
+    font-size: 20pt;
+}
+
+#left{width:50%;}
+#right{padding: 5px 0 0 0;width:50%; height:200px;}
+#submit_div{float:bottom;}
+td{padding: 5px 50px 5px 0;}
+select{width:100%;}
+textarea{min-height: 300px; width: 98%; resize:none;}
+#slider{padding: 10px !important; }

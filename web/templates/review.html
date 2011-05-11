@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content_description %}
+{{review.reviewer.username}}
+{% endblock %}
+
+{% block css%}
+<link type="text/css" href="/resources/css/single_review.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div>
+	<img style="width:120px;height:120px" src="/resources/img/profile.jpg"/>
+	<h1>{{review.employer.name}}</h1>
+	<h2>{{review.employer.company}}</h2>
+	<h3>Worked <span id="color_text">{{review.get_position_type_display}}</span> their <span id="color_text">{{review.get_year_taken_display}}</span> year.</h3>
+	<div id="prose">{{review.comment}}</div>
+</div> 
+<h3>Ranking and Review</h3>
+<div>
+	<div class="left_float right_pad">Overall:</div> 
+	{% for i in overall %}
+		<img class="left_float rating_img right_pad" src="/resources/img/overall_1.png" alt="overall"/>
+	{% endfor %}
+	</div>
+	<div class="right_pad">
+	<div class="left_float right_pad">Hours:</div> 
+	{% for i in hours %}
+		<img class="left_float rating_img right_pad" src="/resources/img/hours.jpg" alt="hours"/>
+	{% endfor %}
+	</div>
+	<div class="right_pad">
+	<div class="left_float right_pad">Pay:</div> 
+	{% for i in pay %}
+		<img class="left_float rating_img right_pad" src="/resources/img/dollar_1.png" alt="pay"/>
+	{% endfor %}
+	</div>
+	<div class="right_pad">
+	<div class="left_float right_pad">Difficulty:</div> 
+	{% for i in difficulty %}
+		<img class="left_float rating_img right_pad" src="/resources/img/difficulty.png" alt="difficulty"/>
+	{% endfor %}
+	</div>
+</div>
+<br><br><br>
+<div class="left_float">
+	<a class="nav_button_link" href="mailto:{{review.reviewer.email}}"><h3>Contact Reviewer</h3></a>
+</div>
+{% endblock %}
