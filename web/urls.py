@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^$', 'reviews.views.index'),
     
     #reviews
+	(r'^fotobox/$', 'profiles.views.fotobox'),
     (r'^reviews/$', 'reviews.views.index'),
     (r'^reviews/recommended$', 'reviews.views.index'),
     (r'^reviews/review/(\d+)', 'reviews.views.review'),

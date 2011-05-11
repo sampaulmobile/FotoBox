@@ -13,6 +13,11 @@ def index(request):
     t = loader.get_template('index.html')
     c = RequestContext(request)
     return HttpResponse(t.render(c))
+
+def fotobox(request):
+    t = loader.get_template('fotobox.html')
+    c = RequestContext(request)
+    return HttpResponse(t.render(c))
 	
 def review_list(request):
 	t = loader.get_template('index.html')
