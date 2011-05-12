@@ -9,6 +9,7 @@
 #login_div{
 	position:absolute;
 	height:70px;
+	width:100%;
 	top:0px;
 	left:0px;
 }
@@ -36,6 +37,8 @@
 }
 
 .content_div{
+	padding-top:10px;
+	padding-left:10px;
 	position:absolute;
 	top:70px;
 	left:0px;
