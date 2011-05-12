@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+	
+	<script type="text/javascript" src="/resources/js/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="/resources/js/jquery-ui-1.8.12.custom.min.js"></script>
+	<script type="text/javascript" src="/resources/js/foto.js"></script>
+	<link type="text/css" href="/resources/css/foto.css" rel="stylesheet" />
+	<link type="text/css" href="/resources/css/flick/jquery-ui-1.8.12.custom.css" rel="stylesheet" />
+	
+	<title>
+	{% block title %}
+		Login
+	{%endblock%}
+	</title>
+</head>
+<body id="body">
+<div class="ui-widget-header" style="border:solid 1px;width:100%;" id="login_div"><span class="logo">fotobo</span><span id="logo">x</span></div>
+{% block content %}
+<div  class="ui-widget-content content_div">
+	
+	<form action="/flickr_login_callback/">
+		<p style="font-family:helvetica">Enter Flickr Username</p>
+		<input id="username" style="width:195px" name="username"><br>
+		<input style="width:200px" class="btn" type="submit" value="ToolKit">
+	</form>
+	<form action="/panorama_manual/">
+		<input style="width:200px" class="btn" type="submit" value="Manual Panorama">
+		<input id="uname" style="display:none;" name="uname">
+	</form>
+</div>
+{%endblock%}
+</body>
+
+</html>

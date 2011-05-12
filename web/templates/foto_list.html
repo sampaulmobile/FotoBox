@@ -1,0 +1,40 @@
+{% extends "foto_login.html" %}
+
+
+{% block title %}
+	Photo List
+{% endblock %}
+
+{%block content%}
+	<div class="content_div" id="pix">
+		<form style="width:100%" action="/editFoto/">
+		<INPUT style="display:none" NAME="username" value={{username}}>
+		<div class="ui-widget-header">
+					<select name="edit_type">
+						<option value="seam">Seam Carving</option>
+						<option value="spanish">Spanish Castle</option>
+						<option value="tonemap_gaussian">Tonemap Gaussian</option>
+						<option value="tonemap_bilateral">Tonemap Bilateral</option>
+						<option value="linear_demosaic">Linear Demosaic</option>
+						<option value="median_demosaic">Median Demosaic</option>
+					</select>
+					<input class="btn" type="submit" value="Edit Selected"/>
+		</div>
+		<table>
+			<tr>
+				
+				{% for photo in photos %}
+					{% if forloop.counter0|divisibleby:"6" %}
+						<tr style="padding:10px">
+					{% endif %}
+						<td>
+							<input type="radio" name="url" value={{photo.url}}>
+							<div>{{photo.title}}</div>
+							<div><img class="imgs" src={{photo.url}}></div>
+						</td>
+				{% endfor %}
+		</table>
+		</form>
+	</div>
+{%endblock%}
+</html>

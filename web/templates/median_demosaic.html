@@ -7,16 +7,13 @@
 	<script type="text/javascript" src="/resources/js/jquery-1.5.2.min.js"></script>
 	{% block js %}{% endblock %}
 	
-	<title>Fotobox</title>
+	<title>Median Demosaic</title>
 </head>
 <body id="body">
-	<form action="http://127.0.0.1:7000/cgi-bin/seam_carving.exe">
-		<p>enter URL</p>
-		<INPUT NAME="url" SIZE="100"><BR>
-		<p>enter width</p>
-		<INPUT NAME="wPercent" SIZE="10"><BR>
-		<p>enter height</p>
-		<INPUT NAME="hPercent" SIZE="10"><BR>
+	<div><img src={{url}}></div>
+	<form action="http://127.0.0.1:7000/cgi-bin/demosaic_median.exe">
+		<INPUT style="display:none" NAME="url" value={{url}} SIZE="10"><BR>
+		<INPUT style="display:none" NAME="username" value={{username}}>
 		<INPUT TYPE="SUBMIT" VALUE="Go!">
 	</form>
 </body>

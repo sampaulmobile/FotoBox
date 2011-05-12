@@ -1,0 +1,20 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<head>
+	
+	<script type="text/javascript" src="/resources/js/jquery-1.5.2.min.js"></script>
+	{% block js %}{% endblock %}
+	
+	<title>Linear Demosaic</title>
+</head>
+<body id="body">
+	<div><img src={{url}}></div>
+	<form action="http://127.0.0.1:7000/cgi-bin/demosaic_linear.exe">
+		<INPUT style="display:none" name="url" value={{url}} SIZE="10"><BR>
+		<INPUT style="display:none" name="username" value={{username}} SIZE="10">
+		<INPUT TYPE="SUBMIT" VALUE="Go!">
+	</form>
+</body>
+</html>

@@ -14,6 +14,11 @@ urlpatterns = patterns('',
     
     #reviews
 	(r'^fotobox/$', 'profiles.views.fotobox'),
+	(r'^flickr_login/$', 'profiles.views.flickr_login'),
+	(r'^editFoto/$', 'profiles.views.editFoto'),
+	(r'^panorama_manual/$', 'profiles.views.panorama_manual'),
+	(r'^panorama_result/$', 'profiles.views.panorama_callback'),
+	(r'^flickr_login_callback/$', 'profiles.views.flickr_login_callback'),
     (r'^reviews/$', 'reviews.views.index'),
     (r'^reviews/recommended$', 'reviews.views.index'),
     (r'^reviews/review/(\d+)', 'reviews.views.review'),

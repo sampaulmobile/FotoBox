@@ -1,0 +1,25 @@
+{% extends "foto_login.html" %}
+
+
+{% block title %}
+	Tonemap Bilateral
+{% endblock %}
+
+{%block content%}
+	<div class="content_div"><br>
+	<div><img src={{url}}></div>
+	<form action="http://127.0.0.1:7000/cgi-bin/tonemap_bilateral.exe">
+		<input style="display:none" name="url" value={{url}} SIZE="10">
+		<input style="display:none" name="username" value={{username}}>
+		<p class="hel">Width</p>
+		<input name="width" value="10">
+		<p class="hel">Spatial Standard Deviation</p>
+		<input name="d" value="8">
+		<p class="hel">Range Standard Deviation</p>
+		<input name="r" value="0.2">
+		<p class="hel">Output Range</p>
+		<input name="range" value="30"><br>
+		<input type="submit" class="btn" value="Go!">
+	</form>
+	</div>
+{%endblock%}

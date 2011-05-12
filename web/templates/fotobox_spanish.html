@@ -1,0 +1,12 @@
+{%extends "foto_login.html"%}
+{%block content %}
+	<div class="content_div">
+	<div><img src={{url}}></div>
+	<form action="http://127.0.0.1:7000/cgi-bin/spanish_castle_web.exe">
+		<INPUT style="display:none" NAME="url" value={{url}} SIZE="10"><BR>
+		<INPUT style="display:none" NAME="username" value={{username}}>
+		<INPUT class="btn" TYPE="SUBMIT" VALUE="Generate Illusion!">
+	</form>
+	</div>
+{% endblock %}
+</html>

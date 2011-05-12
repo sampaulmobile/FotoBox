@@ -1,0 +1,21 @@
+{% extends "foto_login.html" %}
+
+
+{% block title %}
+	Seam Carving
+{% endblock %}
+
+{%block content%}
+	<div class="content_div" id="pix"><br>
+		<div><img src={{url}}></div>
+	<form action="http://127.0.0.1:7000/cgi-bin/seam_carving.exe">
+		<INPUT style="display:none" NAME="url" value={{url}} SIZE="10"><BR>
+		<INPUT style="display:none" NAME="username" value={{username}}>
+		<p class="hel">Enter Desired Width</p>
+		<INPUT NAME="wPercent" SIZE="10"><BR>
+		<p class="hel">Enter Desired Height</p>
+		<INPUT NAME="hPercent" SIZE="10"><BR>
+		<INPUT TYPE="SUBMIT" class="btn" VALUE="Go!">
+	</form>
+	</div>
+{%endblock%}

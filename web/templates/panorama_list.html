@@ -1,0 +1,32 @@
+{% extends "foto_login.html" %}
+
+
+{% block title %}
+	Photo List
+{% endblock %}
+
+{%block content%}
+	<div id="pix">
+		<form action="/panorama_result/">
+		<INPUT style="display:none" NAME="username" value={{username}}>
+		<div class="ui-widget-header">
+			<input class="btn" type="submit" value="Make Panorama"/>
+		</div>
+		<table>
+			<tr>
+				
+				{% for photo in photos %}
+					{% if forloop.counter0|divisibleby:"6" %}
+						<tr style="padding:10px">
+					{% endif %}
+						<td>
+							<input type="checkbox" name="id" value={{photo.id}}>
+							<div>{{photo.title}}</div>
+							<div><img class="imgs" src={{photo.url}}></div>
+						</td>
+				{% endfor %}
+		</table>
+		</form>
+	</div>
+{%endblock%}
+</html>

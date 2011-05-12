@@ -1,0 +1,43 @@
+.float_left{
+	float:left;
+}
+
+.float_top{
+	float:top;
+}
+
+#login_div{
+	position:absolute;
+	height:70px;
+	top:0px;
+	left:0px;
+}
+.imgs{
+	width:200px;
+	height:200px;
+}
+
+.logo{
+	font-weight:900;
+	font-size:4em;
+	font-family:helvetica;
+	color:#245BDD;
+}
+
+#logo{
+	font-weight:900;
+	font-size:4em;
+	font-family:helvetica;
+	color:#F40986;
+}
+
+.hel{
+	font-family:helvetica;
+}
+
+.content_div{
+	position:absolute;
+	top:70px;
+	left:0px;
+	width:100%;
+}
